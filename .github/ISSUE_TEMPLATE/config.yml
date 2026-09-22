@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: The original paper
+    url: https://arxiv.org/abs/2507.02957
+    about: Questions about the method itself belong with its authors, not here.

@@ -1,0 +1,113 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    name: tests (python ${{ matrix.python-version }})
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.9", "3.11", "3.12"]
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: pip
+
+      - name: Install CPU-only PyTorch
+        # The default wheel pulls ~2.5 GB of CUDA libraries that CI never uses.
+        run: pip install torch --index-url https://download.pytorch.org/whl/cpu
+
+      - name: Install package and dev dependencies
+        run: pip install -e ".[dev]"
+
+      - name: Run the test suite
+        run: pytest -v --cov=csat --cov-report=term-missing
+
+      - name: Verify the paper's decoding equation still fails its dimension check
+        # This is the repository's central finding. If this ever passes, either the
+        # check broke or someone changed what the paper is taken to say.
+        run: csat check
+
+      - name: Smoke-test the CLI end to end
+        env:
+          CSAT_ROOT: ${{ runner.temp }}/csat-ci
+        run: |
+          csat info --cpu
+          csat list
+          csat track
+          csat run exp02 --cpu
+          csat run exp03 --cpu
+          test -f "$CSAT_ROOT/results/exp02_effective_attention.csv"
+
+      - name: Upload results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: csat-results-py${{ matrix.python-version }}
+          path: ${{ runner.temp }}/csat-ci
+          if-no-files-found: ignore
+
+  lint:
+    name: lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - run: pip install ruff
+      - name: ruff check
+        run: ruff check src tests
+      - name: ruff format --check
+        run: ruff format --check src tests
+        continue-on-error: true
+
+  notebook:
+    name: notebook executes end to end
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - run: pip install torch --index-url https://download.pytorch.org/whl/cpu
+      - run: pip install -e ".[dev,notebook]"
+      - name: Execute the Kaggle notebook
+        run: |
+          jupyter nbconvert --to notebook --execute \
+            --ExecutePreprocessor.timeout=2400 \
+            --output executed.ipynb \
+            notebooks/csat_reproduction_phase4.ipynb
+      - name: Fail if any cell errored
+        run: |
+          python - <<'PY'
+          import json, sys
+          nb = json.load(open("notebooks/executed.ipynb"))
+          errs = [o for c in nb["cells"] for o in c.get("outputs", [])
+                  if o.get("output_type") == "error"]
+          for e in errs:
+              print(e["ename"], ":", e["evalue"])
+          sys.exit(1 if errs else 0)
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: executed-notebook
+          path: notebooks/executed.ipynb

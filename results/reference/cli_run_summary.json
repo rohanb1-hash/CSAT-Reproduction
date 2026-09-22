@@ -1,0 +1,82 @@
+{
+  "exp01": {
+    "rows": 40,
+    "elapsed_s": 0.89
+  },
+  "exp02": {
+    "rows": 8,
+    "elapsed_s": 0.03
+  },
+  "exp03": {
+    "sweeps": [
+      "measurements",
+      "sparsity",
+      "iterations",
+      "noise"
+    ],
+    "elapsed_s": 6.44
+  },
+  "exp04": {
+    "matched_budget": {
+      "layers": 8,
+      "lista_init_equals_ista_max_abs_diff": 3.039836883544922e-06,
+      "ista_at_t_iters_rel_l2": 0.7266103625297546,
+      "lista_before_training_rel_l2": 0.7266099452972412,
+      "lista_after_training_rel_l2": 0.23150955140590668,
+      "lista_after_training_support_f1": 0.4544740915298462,
+      "ista_at_t_iters_support_f1": 0.1191728264093399
+    },
+    "elapsed_s": 6.69
+  },
+  "exp05": {
+    "compressibility": [
+      {
+        "basis": "dct",
+        "exact_representation": true,
+        "reconstruction_rel_l2": 6.525257276734919e-07,
+        "dim": 64.0,
+        "k_for_95pct_mean": 34.8251953125,
+        "k_for_95pct_median": 35.0,
+        "compressibility_ratio": 0.5441436767578125
+      },
+      {
+        "basis": "random_orthogonal",
+        "exact_representation": true,
+        "reconstruction_rel_l2": 7.117346854101925e-07,
+        "dim": 64.0,
+        "k_for_95pct_mean": 37.23828125,
+        "k_for_95pct_median": 37.0,
+        "compressibility_ratio": 0.58184814453125
+      },
+      {
+        "basis": "learned_overcomplete_128",
+        "exact_representation": false,
+        "reconstruction_rel_l2": 0.12471973896026611,
+        "mean_nnz_at_1e-3": 41.1748046875,
+        "dim": 128.0,
+        "k_for_95pct_mean": 16.8125,
+        "k_for_95pct_median": 16.0,
+        "compressibility_ratio": 0.13134765625
+      }
+    ],
+    "elapsed_s": 1.53
+  },
+  "exp06": {
+    "rows": 36,
+    "elapsed_s": 26.31
+  },
+  "exp07": {
+    "accuracies": {
+      "m=None,learnable=None": 1.0,
+      "m=2,learnable=False": 0.08,
+      "m=4,learnable=False": 0.075,
+      "m=8,learnable=False": 0.041,
+      "m=16,learnable=False": 0.074,
+      "m=2,learnable=True": 0.167,
+      "m=4,learnable=True": 0.219,
+      "m=8,learnable=True": 0.198,
+      "m=16,learnable=True": 0.918
+    },
+    "elapsed_s": 26.68
+  }
+}

@@ -1,0 +1,276 @@
+{
+  "compressibility_of_C": [
+    {
+      "basis": "dct",
+      "exact_representation": true,
+      "reconstruction_rel_l2": 6.525257276734919e-07,
+      "dim": 64.0,
+      "k_for_95pct_mean": 34.8251953125,
+      "k_for_95pct_median": 35.0,
+      "compressibility_ratio": 0.5441436767578125
+    },
+    {
+      "basis": "random_orthogonal",
+      "exact_representation": true,
+      "reconstruction_rel_l2": 7.117346854101925e-07,
+      "dim": 64.0,
+      "k_for_95pct_mean": 37.23828125,
+      "k_for_95pct_median": 37.0,
+      "compressibility_ratio": 0.58184814453125
+    },
+    {
+      "basis": "learned_overcomplete_128",
+      "exact_representation": false,
+      "reconstruction_rel_l2": 0.12471973896026611,
+      "mean_nnz_at_1e-3": 41.1748046875,
+      "dim": 128.0,
+      "k_for_95pct_mean": 16.8125,
+      "k_for_95pct_median": 16.0,
+      "compressibility_ratio": 0.13134765625
+    }
+  ],
+  "bridge1_denoise": [
+    {
+      "bridge": "denoise",
+      "m": 32,
+      "n": 256,
+      "lam": 0.001,
+      "n_iters": 200,
+      "rel_l2_Z_vs_C": 7.136255741119385,
+      "rel_l2_Chat_vs_C": 7.133390426635742,
+      "decoder_helps": true,
+      "improvement": 0.002865314483642578,
+      "cosine_Z_vs_C": 0.01741543784737587,
+      "cosine_Chat_vs_C": 0.017415834590792656,
+      "mean_nnz_alpha": 63.9423828125,
+      "d_k": 64
+    },
+    {
+      "bridge": "denoise",
+      "m": 32,
+      "n": 256,
+      "lam": 0.01,
+      "n_iters": 200,
+      "rel_l2_Z_vs_C": 7.136255741119385,
+      "rel_l2_Chat_vs_C": 7.107658863067627,
+      "decoder_helps": true,
+      "improvement": 0.028596878051757812,
+      "cosine_Z_vs_C": 0.01741543784737587,
+      "cosine_Chat_vs_C": 0.017418252304196358,
+      "mean_nnz_alpha": 63.669921875,
+      "d_k": 64
+    },
+    {
+      "bridge": "denoise",
+      "m": 32,
+      "n": 256,
+      "lam": 0.05,
+      "n_iters": 200,
+      "rel_l2_Z_vs_C": 7.136255741119385,
+      "rel_l2_Chat_vs_C": 6.994168281555176,
+      "decoder_helps": true,
+      "improvement": 0.14208745956420898,
+      "cosine_Z_vs_C": 0.01741543784737587,
+      "cosine_Chat_vs_C": 0.017432432621717453,
+      "mean_nnz_alpha": 62.33984375,
+      "d_k": 64
+    },
+    {
+      "bridge": "denoise",
+      "m": 32,
+      "n": 256,
+      "lam": 0.2,
+      "n_iters": 200,
+      "rel_l2_Z_vs_C": 7.136255741119385,
+      "rel_l2_Chat_vs_C": 6.581600189208984,
+      "decoder_helps": true,
+      "improvement": 0.5546555519104004,
+      "cosine_Z_vs_C": 0.01741543784737587,
+      "cosine_Chat_vs_C": 0.017387449741363525,
+      "mean_nnz_alpha": 57.2998046875,
+      "d_k": 64
+    },
+    {
+      "bridge": "denoise",
+      "m": 64,
+      "n": 256,
+      "lam": 0.001,
+      "n_iters": 200,
+      "rel_l2_Z_vs_C": 3.127587080001831,
+      "rel_l2_Chat_vs_C": 3.1249401569366455,
+      "decoder_helps": true,
+      "improvement": 0.002646923065185547,
+      "cosine_Z_vs_C": 0.05548040568828583,
+      "cosine_Chat_vs_C": 0.05546637624502182,
+      "mean_nnz_alpha": 63.8505859375,
+      "d_k": 64
+    },
+    {
+      "bridge": "denoise",
+      "m": 64,
+      "n": 256,
+      "lam": 0.01,
+      "n_iters": 200,
+      "rel_l2_Z_vs_C": 3.127587080001831,
+      "rel_l2_Chat_vs_C": 3.1012325286865234,
+      "decoder_helps": true,
+      "improvement": 0.026354551315307617,
+      "cosine_Z_vs_C": 0.05548040568828583,
+      "cosine_Chat_vs_C": 0.055336687713861465,
+      "mean_nnz_alpha": 63.115234375,
+      "d_k": 64
+    },
+    {
+      "bridge": "denoise",
+      "m": 64,
+      "n": 256,
+      "lam": 0.05,
+      "n_iters": 200,
+      "rel_l2_Z_vs_C": 3.127587080001831,
+      "rel_l2_Chat_vs_C": 2.998248815536499,
+      "decoder_helps": true,
+      "improvement": 0.12933826446533203,
+      "cosine_Z_vs_C": 0.05548040568828583,
+      "cosine_Chat_vs_C": 0.05465079843997955,
+      "mean_nnz_alpha": 59.822265625,
+      "d_k": 64
+    },
+    {
+      "bridge": "denoise",
+      "m": 64,
+      "n": 256,
+      "lam": 0.2,
+      "n_iters": 200,
+      "rel_l2_Z_vs_C": 3.127587080001831,
+      "rel_l2_Chat_vs_C": 2.6460094451904297,
+      "decoder_helps": true,
+      "improvement": 0.48157763481140137,
+      "cosine_Z_vs_C": 0.05548040568828583,
+      "cosine_Chat_vs_C": 0.05164143815636635,
+      "mean_nnz_alpha": 47.64453125,
+      "d_k": 64
+    },
+    {
+      "bridge": "denoise",
+      "m": 128,
+      "n": 256,
+      "lam": 0.001,
+      "n_iters": 200,
+      "rel_l2_Z_vs_C": 1.4949771165847778,
+      "rel_l2_Chat_vs_C": 1.4930000305175781,
+      "decoder_helps": true,
+      "improvement": 0.001977086067199707,
+      "cosine_Z_vs_C": 0.15351176261901855,
+      "cosine_Chat_vs_C": 0.15354233980178833,
+      "mean_nnz_alpha": 63.56640625,
+      "d_k": 64
+    },
+    {
+      "bridge": "denoise",
+      "m": 128,
+      "n": 256,
+      "lam": 0.01,
+      "n_iters": 200,
+      "rel_l2_Z_vs_C": 1.4949771165847778,
+      "rel_l2_Chat_vs_C": 1.4755281209945679,
+      "decoder_helps": true,
+      "improvement": 0.01944899559020996,
+      "cosine_Z_vs_C": 0.15351176261901855,
+      "cosine_Chat_vs_C": 0.1537788212299347,
+      "mean_nnz_alpha": 61.6279296875,
+      "d_k": 64
+    },
+    {
+      "bridge": "denoise",
+      "m": 128,
+      "n": 256,
+      "lam": 0.05,
+      "n_iters": 200,
+      "rel_l2_Z_vs_C": 1.4949771165847778,
+      "rel_l2_Chat_vs_C": 1.4049500226974487,
+      "decoder_helps": true,
+      "improvement": 0.0900270938873291,
+      "cosine_Z_vs_C": 0.15351176261901855,
+      "cosine_Chat_vs_C": 0.15329264104366302,
+      "mean_nnz_alpha": 53.3798828125,
+      "d_k": 64
+    },
+    {
+      "bridge": "denoise",
+      "m": 128,
+      "n": 256,
+      "lam": 0.2,
+      "n_iters": 200,
+      "rel_l2_Z_vs_C": 1.4949771165847778,
+      "rel_l2_Chat_vs_C": 1.2226994037628174,
+      "decoder_helps": true,
+      "improvement": 0.27227771282196045,
+      "cosine_Z_vs_C": 0.15351176261901855,
+      "cosine_Chat_vs_C": 0.13407489657402039,
+      "mean_nnz_alpha": 28.396484375,
+      "d_k": 64
+    }
+  ],
+  "bridge2_feature_cs": [
+    {
+      "bridge": "feature_cs",
+      "p_measurements": 16,
+      "d_k": 64,
+      "undersampling_ratio": 0.25,
+      "rel_l2_Chat_vs_C": 0.9607834815979004,
+      "measurement_rel_l2": 0.013763985596597195,
+      "note": "well-posed CS, but Phi_f is OUR construction and y is not the paper's Z"
+    },
+    {
+      "bridge": "feature_cs",
+      "p_measurements": 32,
+      "d_k": 64,
+      "undersampling_ratio": 0.5,
+      "rel_l2_Chat_vs_C": 0.8711020946502686,
+      "measurement_rel_l2": 0.02801412157714367,
+      "note": "well-posed CS, but Phi_f is OUR construction and y is not the paper's Z"
+    },
+    {
+      "bridge": "feature_cs",
+      "p_measurements": 48,
+      "d_k": 64,
+      "undersampling_ratio": 0.75,
+      "rel_l2_Chat_vs_C": 0.5759161114692688,
+      "measurement_rel_l2": 0.04491619020700455,
+      "note": "well-posed CS, but Phi_f is OUR construction and y is not the paper's Z"
+    }
+  ],
+  "bridge3_token_cs": [
+    {
+      "bridge": "token_cs",
+      "m": 32,
+      "n": 256,
+      "undersampling_ratio": 0.125,
+      "rel_l2_Vhat_vs_V": 0.9838564991950989,
+      "note": "recovers V along the token axis, NOT the context vector C"
+    },
+    {
+      "bridge": "token_cs",
+      "m": 64,
+      "n": 256,
+      "undersampling_ratio": 0.25,
+      "rel_l2_Vhat_vs_V": 0.9575015902519226,
+      "note": "recovers V along the token axis, NOT the context vector C"
+    },
+    {
+      "bridge": "token_cs",
+      "m": 128,
+      "n": 256,
+      "undersampling_ratio": 0.5,
+      "rel_l2_Vhat_vs_V": 0.8040691018104553,
+      "note": "recovers V along the token axis, NOT the context vector C"
+    }
+  ],
+  "config": {
+    "n": 256,
+    "d_k": 64,
+    "heads": 4,
+    "token_mode": "redundant",
+    "n_iters": 200
+  }
+}

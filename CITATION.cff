@@ -1,0 +1,36 @@
+cff-version: 1.2.0
+title: "CSAT / CS-VLM reproduction (Phase 4)"
+message: >-
+  If you use this reproduction, please cite both this repository and the
+  original paper it analyses.
+type: software
+authors:
+  - family-names: "<YOUR SURNAME>"
+    given-names: "<YOUR GIVEN NAME>"
+repository-code: "https://github.com/OWNER/csat-reproduction"
+license: MIT
+version: 0.1.0
+date-released: "2026-09-22"
+keywords:
+  - compressed sensing
+  - attention
+  - transformers
+  - vision-language models
+  - reproducibility
+references:
+  - type: article
+    title: >-
+      CS-VLM: Compressed Sensing Attention for Efficient Vision-Language
+      Representation Learning
+    authors:
+      - family-names: Kiruluta
+        given-names: Andrew
+      - family-names: Raju
+        given-names: Preethi
+      - family-names: Burity
+        given-names: Priscilla
+    year: 2025
+    identifiers:
+      - type: other
+        value: "arXiv:2507.02957v1"
+    url: "https://arxiv.org/abs/2507.02957"

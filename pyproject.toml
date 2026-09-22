@@ -1,0 +1,90 @@
+[build-system]
+requires = ["setuptools>=64", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "csat-reproduction"
+version = "0.1.0"
+description = "Reproduction and critical analysis of CS-VLM / CSAT (arXiv:2507.02957v1): compressed sensing attention for vision-language models"
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+keywords = [
+    "compressed-sensing", "attention", "transformer", "vision-language",
+    "reproducibility", "ista", "lista", "sparse-recovery", "pytorch",
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = [
+    "torch>=2.0",
+    "numpy>=1.23",
+    "pandas>=1.5",
+    "matplotlib>=3.6",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0",
+    "pytest-cov>=4.0",
+    "ruff>=0.5",
+]
+notebook = [
+    "jupyter>=1.0",
+    "nbformat>=5.7",
+    "nbconvert>=7.0",
+    "ipykernel>=6.0",
+]
+
+[project.scripts]
+csat = "csat.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/OWNER/csat-reproduction"
+Repository = "https://github.com/OWNER/csat-reproduction"
+Issues = "https://github.com/OWNER/csat-reproduction/issues"
+Paper = "https://arxiv.org/abs/2507.02957"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+minversion = "7.0"
+testpaths = ["tests"]
+addopts = "-q --strict-markers"
+markers = [
+    "slow: tests that take more than a few seconds",
+    "gpu: tests that require CUDA",
+]
+filterwarnings = ["ignore::DeprecationWarning"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py39"
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "UP", "B", "C4"]
+ignore = [
+    "E501",   # long lines are allowed in the maths-heavy docstrings
+    "E741",   # `l` is a reasonable name in linear algebra
+    "B008",
+]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/*" = ["B011"]
+
+[tool.coverage.run]
+source = ["src/csat"]
+branch = true
+
+[tool.coverage.report]
+exclude_lines = ["pragma: no cover", "if __name__ == .__main__.:", "raise NotImplementedError"]

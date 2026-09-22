@@ -1,0 +1,7 @@
+# Runtime dependencies. Prefer `pip install -e .`, which reads pyproject.toml.
+# For a CPU-only install, first run:
+#   pip install torch --index-url https://download.pytorch.org/whl/cpu
+torch>=2.0
+numpy>=1.23
+pandas>=1.5
+matplotlib>=3.6
